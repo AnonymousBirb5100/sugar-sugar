@@ -24,14 +24,14 @@
                 unmuteOverlay: "hidden",
             };
             document.addEventListener("DOMContentLoaded", function () {
-                let swf = '/swf/sugarsugar2.swf';
+                let swf = '/sugar-sugar/swf/sugarsugar2.swf';
                 if (swf) {
                     let ruffle = window.RufflePlayer.newest();
                     let player = Object.assign(document.getElementById("container").appendChild(ruffle.createPlayer()), {
                         style: 'width: 100vw; height: 100vh',
                     });
                                       player.load({
-                        url: '/swf/sugarsugar2.swf'
+                        url: '/sugar-sugar/swf/sugarsugar2.swf'
                     });  
 
                 }
