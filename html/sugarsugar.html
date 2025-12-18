@@ -24,14 +24,14 @@
                 unmuteOverlay: "hidden",
             };
             document.addEventListener("DOMContentLoaded", function () {
-                let swf = 'https://anonymousbirb5100.github.io/sugar-sugar/swf/sugarsugar.swf';
+                let swf = '/sugar-sugar/swf/sugarsugar.swf';
                 if (swf) {
                     let ruffle = window.RufflePlayer.newest();
                     let player = Object.assign(document.getElementById("container").appendChild(ruffle.createPlayer()), {
                         style: 'width: 100vw; height: 100vh',
                     });
                                       player.load({
-                        url: 'https://anonymousbirb5100.github.io/sugar-sugar/swf/sugarsugar.swf'
+                        url: '/sugar-sugar/swf/sugarsugar.swf'
                     });  
 
                 }
