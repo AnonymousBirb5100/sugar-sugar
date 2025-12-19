@@ -1,42 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Sugar, Sugar Unblocked on BirdHub</title>
-        <meta name="robots" content="noindex, nofollow">
-        <style>
-            html, body {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                overflow: hidden;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="container"></div>
+<head>
+  <meta charset="UTF-8">
+  <title>Sugar, Sugar Unblocked on BirdHub</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #awayfl-container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="awayfl-container"></div>
 
-        <script>
-            window.RufflePlayer = window.RufflePlayer || {};
-            window.RufflePlayer.config = {
-                autoplay: "on",
-                contextMenu: false,
-                unmuteOverlay: "hidden",
-            };
-            document.addEventListener("DOMContentLoaded", function () {
-                let swf = '/sugar-sugar/swf/sugarsugar.swf';
-                if (swf) {
-                    let ruffle = window.RufflePlayer.newest();
-                    let player = Object.assign(document.getElementById("container").appendChild(ruffle.createPlayer()), {
-                        style: 'width: 100vw; height: 100vh',
-                    });
-                                      player.load({
-                        url: '/sugar-sugar/swf/sugarsugar.swf'
-                    });  
-
-                }
-            });
-        </script>
-        <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-    </body>
+  <script src="/awayfl-player/awayfl-embed.js"></script>
+  <script>
+    AwayFL.embed({
+      container: document.getElementById('awayfl-container'),
+      swfUrl: '/sugar-sugar/swf/sugarsugar.swf' //change the URL to emulate a different SWF
+    });
+  </script>
+</body>
 </html>
