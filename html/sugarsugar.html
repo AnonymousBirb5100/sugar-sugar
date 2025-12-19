@@ -5,39 +5,89 @@
   <title>Sugar, Sugar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-html, body {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background: #111;
-}
-#container {
-  width: 100vw;
-  height: 100vh;
-}
-#container canvas {
-  width: 100%;
-  height: 100%;
-}
-
+    html, body {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+    /* Fill the entire viewport */
+    #container {
+      position: fixed;
+      inset: 0;
+    }
+    /* Make the canvas stretch to the container */
+    #container canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
   </style>
 </head>
 <body>
   <div id="container"></div>
 
+  <!-- Load the AwayFL embed script from your player site -->
   <script src="/awayfl-player/dist/embed.js"></script>
-
   <script>
-    window.AWAY_EMBED_CFG = {scaleMode: 'showAll', align: 'middle', backgroundColor: '#000000'};
+    // Optional: keep aspect ratio and center
+    window.AWAY_EMBED_CFG = {
+      scaleMode: 'showAll',   // 'noScale' | 'showAll' | 'exactFit'
+      align: 'middle',
+      backgroundColor: '#000000'
+    };
 
-    // Load SWF into the container
+    // 1) Embed with any initial resolution (stage size or viewport size).
+    // If you know the game’s native dimensions, use those. Otherwise:
+    const initialW = Math.max(320, window.innerWidth);
+    const initialH = Math.max(240, window.innerHeight);
+
     swfObject.embedSWF(
       '/sugar-sugar/swf/sugarsugar.swf',
       'container',
-      800, // width
-      600  // height
+      initialW,
+      initialH
     );
+
+    // 2) After the canvas is created, enforce responsive display sizing via CSS.
+    // AwayFL inserts the canvas asynchronously, so wait until it exists:
+    function applyCanvasSizing() {
+      const container = document.getElementById('container');
+      const canvas = container.querySelector('canvas');
+      if (!canvas) return false;
+
+      // CSS sizing: fill container
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
+
+      // Optional: improve scaling look
+      canvas.style.imageRendering = 'auto'; // or 'pixelated' for retro look
+
+      return true;
+    }
+
+    // Try immediately, then observe for the canvas if not ready yet
+    if (!applyCanvasSizing()) {
+      const mo = new MutationObserver(() => {
+        if (applyCanvasSizing()) mo.disconnect();
+      });
+      mo.observe(document.getElementById('container'), { childList: true });
+    }
+
+    // 3) Keep the display fitting the viewport on resize.
+    // Note: this resizes the DISPLAY via CSS; the internal canvas resolution stays as set above.
+    window.addEventListener('resize', () => {
+      // Nothing special needed—the container and canvas CSS already use 100%/100vh/100vw.
+      // If you want to also adjust the internal resolution (for sharper rendering),
+      // you can re-embed or set canvas.width/height to window.innerWidth/innerHeight:
+      const canvas = document.getElementById('container').querySelector('canvas');
+      if (canvas) {
+        // Optional: update internal resolution to match viewport for crispness
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+    });
   </script>
 </body>
 </html>
