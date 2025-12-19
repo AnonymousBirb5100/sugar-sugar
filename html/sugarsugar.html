@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sugar, Sugar Unblocked on BirdHub</title>
+  <meta charset="UTF-8" />
+  <title>Sugar, Sugar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      margin: 0;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    #awayfl-container {
-      width: 100%;
+    html, body {
       height: 100%;
+      margin: 0;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #container {
+      width: 800px;   /* adjust to the game’s resolution */
+      height: 600px;
+      background: #000;
     }
   </style>
 </head>
 <body>
-  <div id="awayfl-container"></div>
+  <div id="container"></div>
 
-  <script src="/awayfl-player/dist/embed.js"></script>
+  <!-- Load the AwayFL embed script from your forked player site -->
+  <script src="https://anonymousbirb5100.github.io/awayfl-player/dist/embed.js"></script>
+
   <script>
-    AwayFL.embed({
-      container: document.getElementById('awayfl-container'),
-      swfUrl: '/sugar-sugar/swf/sugarsugar.swf' //change the URL to emulate a different SWF
-    });
+    // Optional: global config before embedding (see README for options)
+    // window.AWAY_EMBED_CFG = { /* e.g., scaleMode: 'showAll', backgroundColor: '#000000' */ };
+
+    // Load your SWF into the container
+    swfObject.embedSWF(
+      'https://anonymousbirb5100.github.io/sugar-sugar/swf/sugarsugar.swf',
+      'container',
+      800, // width
+      600  // height
+    );
   </script>
 </body>
 </html>
