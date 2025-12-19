@@ -5,32 +5,35 @@
   <title>Sugar, Sugar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #container {
-      width: 800px;   /* adjust to the game’s resolution */
-      height: 600px;
-      background: #000;
-    }
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #111;
+}
+#container {
+  width: 100vw;
+  height: 100vh;
+}
+#container canvas {
+  width: 100%;
+  height: 100%;
+}
+
   </style>
 </head>
 <body>
   <div id="container"></div>
 
-  <script src="https://birdswebgames.github.io/awayfl-player/dist/embed.js"></script>
+  <script src="/awayfl-player/dist/embed.js"></script>
 
   <script>
     window.AWAY_EMBED_CFG = {scaleMode: 'showAll', align: 'middle', backgroundColor: '#000000'};
 
     // Load SWF into the container
     swfObject.embedSWF(
-      'https://birdswebgames.github.io/sugar-sugar/swf/sugarsugar.swf',
+      '/sugar-sugar/swf/sugarsugar.swf',
       'container',
       800, // width
       600  // height
