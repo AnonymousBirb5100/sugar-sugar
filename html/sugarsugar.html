@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sugar, Sugar</title>
+  <title>Sugar, Sugar Unblocked on BirdHub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     html, body {
@@ -14,8 +14,8 @@
       justify-content: center;
     }
     #container {
-      width: 800px;   /* adjust to the game’s resolution */
-      height: 600px;
+      width: 100%;
+      height: 100%;
       background: #000;
     }
   </style>
@@ -23,19 +23,15 @@
 <body>
   <div id="container"></div>
 
-  <!-- Load the AwayFL embed script from your forked player site -->
-  <script src="https://anonymousbirb5100.github.io/awayfl-player/dist/embed.js"></script>
+  <script src="/awayfl-player/dist/embed.js"></script>
 
   <script>
-    // Optional: global config before embedding (see README for options)
-    // window.AWAY_EMBED_CFG = { /* e.g., scaleMode: 'showAll', backgroundColor: '#000000' */ };
-
-    // Load your SWF into the container
+    // Load SWF into the container
     swfObject.embedSWF(
-      'https://anonymousbirb5100.github.io/sugar-sugar/swf/sugarsugar.swf',
+      '/sugar-sugar/swf/sugarsugar.swf',
       'container',
-      800, // width
-      600  // height
+      100%, // width
+      100%  // height
     );
   </script>
 </body>
