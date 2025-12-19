@@ -2,41 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sugar, Sugar Unblocked on BirdHub</title>
+  <title>Sugar, Sugar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     html, body {
-      width: 100%;
       height: 100%;
       margin: 0;
       background: #111;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
     #container {
-      width: 100vw;
-      height: 100vh;
+      width: 800px;   /* adjust to the game’s resolution */
+      height: 600px;
       background: #000;
-      overflow: hidden;
     }
-    #container canvas {
-      width: 100vw;
-      height: 100vh;
-    }
-
   </style>
 </head>
 <body>
   <div id="container"></div>
 
-  <script src="/awayfl-player/dist/embed.js"></script>
+  <script src="https://birdswebgames.github.io/awayfl-player/dist/embed.js"></script>
 
   <script>
+    window.AWAY_EMBED_CFG = {scaleMode: 'showAll', align: 'middle', backgroundColor: '#000000'};
+
     // Load SWF into the container
     swfObject.embedSWF(
-      '/sugar-sugar/swf/sugarsugar.swf',
+      'https://birdswebgames.github.io/sugar-sugar/swf/sugarsugar.swf',
       'container',
       800, // width
       600  // height
