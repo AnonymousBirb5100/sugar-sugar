@@ -14,8 +14,8 @@
       justify-content: center;
     }
     #container {
-      width: 800px;   /* adjust to the game’s resolution */
-      height: 600px;
+      width: window.innerWidth;   /* adjust to the game’s resolution */
+      height: window.innerHeight;
       background: #000;
     }
   </style>
@@ -34,8 +34,8 @@
     swfObject.embedSWF(
       'https://anonymousbirb5100.github.io/sugar-sugar/swf/sugarsugar.swf',
       'container',
-      800, // width
-      600  // height
+      window.innerWidth, // width
+      window.innerHeight  // height
     );
   </script>
 </body>
