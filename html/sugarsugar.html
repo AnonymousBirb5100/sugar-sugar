@@ -29,14 +29,13 @@
   <script>
     // Optional: global config before embedding (see README for options)
     // window.AWAY_EMBED_CFG = { /* e.g., scaleMode: 'showAll', backgroundColor: '#000000' */ };
-    var viewportWidth = window.innerWidth;
-    var viewportHeight = window.innerHeight;
+
     // Load your SWF into the container
     swfObject.embedSWF(
       'https://birdswebgames.github.io/sugar-sugar/swf/sugarsugar.swf',
       'container',
-      viewportWidth, // width
-      viewportHeight  // height
+      window.innerWidth, // width
+      window.innerHeight  // height
     );
   </script>
 </body>
