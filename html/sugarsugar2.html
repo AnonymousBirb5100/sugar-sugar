@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Sugar, Sugar 2 Unblocked on BirdHub</title>
-        <meta name="robots" content="noindex, nofollow">
-        <style>
-            html, body {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                overflow: hidden;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="container"></div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Sugar, Sugar 2 Unblocked on BirdHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #container {
+      width: window.innerWidth;
+      height: window.innerHeight;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
 
-        <script>
-            window.RufflePlayer = window.RufflePlayer || {};
-            window.RufflePlayer.config = {
-                autoplay: "on",
-                contextMenu: false,
-                unmuteOverlay: "hidden",
-            };
-            document.addEventListener("DOMContentLoaded", function () {
-                let swf = '/sugar-sugar/swf/sugarsugar2.swf';
-                if (swf) {
-                    let ruffle = window.RufflePlayer.newest();
-                    let player = Object.assign(document.getElementById("container").appendChild(ruffle.createPlayer()), {
-                        style: 'width: 100vw; height: 100vh',
-                    });
-                                      player.load({
-                        url: '/sugar-sugar/swf/sugarsugar2.swf'
-                    });  
+  <!-- Load the AwayFL embed script -->
+  <script src="https://anonymousbirb5100.github.io/awayfl-player/dist/embed.js"></script>
 
-                }
-            });
-        </script>
-        <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-    </body>
+  <script>
+
+    // SWF Loader
+    swfObject.embedSWF(
+      'https://anonymousbirb5100.github.io/sugar-sugar/swf/sugarsugar2.swf',
+      'container',
+      window.innerWidth, // width
+      window.innerHeight  // height
+    );
+  </script>
+</body>
 </html>
